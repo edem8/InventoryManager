@@ -1,6 +1,7 @@
 package com.example.inventory;
 
 import com.example.inventory.data.GoodsDataSource;
+import com.example.inventory.repository.Goods;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -19,9 +20,6 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-
-
-        GoodsDataSource okay = new GoodsDataSource();
-        okay.getGoods();
+    launch();
     }
 }
