@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -8,6 +9,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="parent" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventory.controller.HelloController">
    <children>
@@ -17,14 +19,28 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="135.0" layoutY="95.0" text="Name" />
-                        <Label layoutX="135.0" layoutY="141.0" text="Category" />
-                        <Label layoutX="136.0" layoutY="178.0" text="Quantity" />
+                        <Label layoutX="135.0" layoutY="95.0" text="Goods name" />
+                        <Label layoutX="135.0" layoutY="141.0" text="Goods category" />
+                        <Label layoutX="136.0" layoutY="178.0" text="Goods  quantity" />
                         <TextField fx:id="tfname" layoutX="231.0" layoutY="91.0" prefHeight="25.0" prefWidth="235.0" />
                         <TextField fx:id="tfcategory" layoutX="231.0" layoutY="137.0" prefHeight="25.0" prefWidth="236.0" />
                         <TextField fx:id="tfquantity" layoutX="232.0" layoutY="183.0" prefHeight="25.0" prefWidth="235.0" />
-                        <Button fx:id="btnsave" layoutX="271.0" layoutY="261.0" mnemonicParsing="false" onAction="#saveHandleButtonAction" prefWidth="70.0" text="Save" />
-                        <Button fx:id="btnremove" layoutX="357.0" layoutY="261.0" mnemonicParsing="false" onAction="#removeHandleButtonAction" prefWidth="70.0" text="Remove" />
+                        <Button fx:id="btnsave" layoutX="271.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleButtonAction" prefWidth="70.0" text="Save">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="btnremove" layoutX="357.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleButtonAction" prefWidth="70.0" text="Remove">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Label fx:id="statuslb" layoutX="294.0" layoutY="234.0" prefHeight="17.0" prefWidth="109.0" textAlignment="JUSTIFY" textFill="RED">
+                           <font>
+                              <Font name="Trebuchet MS" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Label>
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -61,12 +77,19 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tvVendors" layoutX="60.0" layoutY="26.0" prefHeight="296.0" prefWidth="440.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="26.0">
+                        <TableView fx:id="tvVendors" layoutX="280.0" layoutY="52.0" prefHeight="270.0" prefWidth="250.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="52.0">
                           <columns>
-                            <TableColumn fx:id="vendorcolname" prefWidth="219.0" text="vendor name" />
-                            <TableColumn fx:id="vendorcolnumber" prefWidth="220.0" text="vendor number" />
+                            <TableColumn fx:id="vendorcolname" prefWidth="125.0" text="vendor name" />
+                            <TableColumn fx:id="vendorcolnumber" prefWidth="122.0" text="vendor number" />
                           </columns>
                         </TableView>
+                        <Label layoutX="89.0" layoutY="98.0" text="update your vendor list" />
+                        <Label layoutX="32.0" layoutY="134.0" text="Name" />
+                        <Label layoutX="32.0" layoutY="178.0" text="Tel No." />
+                        <TextField fx:id="vtfname" layoutX="82.0" layoutY="130.0" />
+                        <TextField fx:id="vtfnumber" layoutX="82.0" layoutY="175.0" />
+                        <Button fx:id="vrbtn" layoutX="165.0" layoutY="226.0" mnemonicParsing="false" onAction="#onHandleVendorAction" text="Remove" />
+                        <Button fx:id="vsbtn" layoutX="93.0" layoutY="226.0" mnemonicParsing="false" onAction="#onHandleVendorAction" prefHeight="25.0" prefWidth="58.0" text="New" />
                      </children></AnchorPane>
               </content>
             </Tab>
