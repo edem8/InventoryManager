@@ -1,5 +1,6 @@
 package com.example.inventory.data;
 
+import com.example.inventory.controller.HelloController;
 import com.example.inventory.repository.Goods;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -11,30 +12,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class GoodsDataSource {
-    public ObservableList<Goods> getGoods() {     // Retrieving goods from database
-        ObservableList<Goods> newGoods = FXCollections.observableArrayList();
-
-        DatabaseConnection connection = new DatabaseConnection();
-        Connection connectDB = connection.getConnection();
-
-        String connectQuery = "SELECT name, category, quantity FROM goods";
-
-
-        try {
-            Statement statement = connectDB.createStatement();
-            ResultSet queryOutput = statement.executeQuery(connectQuery);
-
-            while (queryOutput.next()) {
-                Goods goods = new Goods(queryOutput.getString("name"), queryOutput.getString("category"), queryOutput.getInt("quantity"));
-                newGoods.add(goods);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return newGoods;
-    }
-
 
     public void addGoods(String name, String category, int quantity){   // Adding goods to database
         String connectionQuery = "INSERT INTO goods (name, category, quantity) VALUES ('"+ name + "','" + category + "', " + quantity + ")";
@@ -66,10 +43,5 @@ public class GoodsDataSource {
         }
     }
 
-    public void showGoods(){  //Display fetch goods from database in a list
-        ObservableList<Goods> goods = getGoods(); //list of all goods in database stored here. Populate into scene builder soon.
-
-        System.out.println(goods.size());
-    }
 }
 

@@ -2,7 +2,7 @@ package com.example.inventory.repository;
 
 public class Goods {
     private String name;
-    private String category;
+    public String category;
     private int quantity;
 
     public Goods(String name, String category, int quantity){

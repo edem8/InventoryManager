@@ -1,0 +1,11 @@
+.parent {
+ -fx-padding: 0 20 0 20;
+}
+.Tab_container{
+ -fx-background-color: #c4c4c4;
+}
+.Tab{
+ -fx-background-color: #808080;
+ -fx-font-family: Inter;
+ -fx-padding: 0 9 0 12;
+}

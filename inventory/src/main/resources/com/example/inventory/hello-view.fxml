@@ -1,16 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.inventory.controller.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="parent" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventory.controller.HelloController">
+   <children>
+      <TabPane fx:id="tabpane" layoutX="82.0" prefHeight="200.0" prefWidth="200.0" styleClass="Tab_container" stylesheets="@css/styles.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab fx:id="modiftytab" styleClass="Tab" text="modify goods">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="135.0" layoutY="95.0" text="Name" />
+                        <Label layoutX="135.0" layoutY="141.0" text="Category" />
+                        <Label layoutX="136.0" layoutY="178.0" text="Quantity" />
+                        <TextField fx:id="tfname" layoutX="231.0" layoutY="91.0" prefHeight="25.0" prefWidth="235.0" />
+                        <TextField fx:id="tfcategory" layoutX="231.0" layoutY="137.0" prefHeight="25.0" prefWidth="236.0" />
+                        <TextField fx:id="tfquantity" layoutX="232.0" layoutY="183.0" prefHeight="25.0" prefWidth="235.0" />
+                        <Button fx:id="btnsave" layoutX="271.0" layoutY="261.0" mnemonicParsing="false" onAction="#saveHandleButtonAction" prefWidth="70.0" text="Save" />
+                        <Button fx:id="btnremove" layoutX="357.0" layoutY="261.0" mnemonicParsing="false" onAction="#removeHandleButtonAction" prefWidth="70.0" text="Remove" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="viewgoodstab" styleClass="Tab" text="view goods">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tvgoods" layoutX="50.0" layoutY="30.0" prefHeight="295.0" prefWidth="460.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="30.0">
+                          <columns>
+                            <TableColumn fx:id="goodscolcategory" prefWidth="163.0" text="category" />
+                            <TableColumn fx:id="goodscolname" prefWidth="156.0" text="name" />
+                              <TableColumn fx:id="goodscolqty" prefWidth="140.0" text="quantity" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="viewbillstab" styleClass="Tab" text="view bills">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+          <Tab fx:id="isuuegoodstab" styleClass="Tab" text="issue goods">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab fx:id="viewIssuedhgoodstab" styleClass="Tab" text="view issued goods">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab fx:id="viewvendortab" styleClass="Tab" text="view vendors">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tvVendors" layoutX="60.0" layoutY="26.0" prefHeight="296.0" prefWidth="440.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="26.0">
+                          <columns>
+                            <TableColumn fx:id="vendorcolname" prefWidth="219.0" text="vendor name" />
+                            <TableColumn fx:id="vendorcolnumber" prefWidth="220.0" text="vendor number" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
