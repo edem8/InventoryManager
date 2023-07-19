@@ -6,7 +6,6 @@ import com.example.inventory.repository.Bill;
 import com.example.inventory.repository.Goods;
 import com.example.inventory.repository.IssueGoods;
 import com.example.inventory.repository.Vendor;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,9 +14,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable{
@@ -181,7 +177,7 @@ public class HelloController implements Initializable{
 
 
     public void showGoods(){
-        GoodsDataSource getGoodsList = new GoodsDataSource();
+        DatabaseConnection.GoodsDataSource getGoodsList = new DatabaseConnection.GoodsDataSource();
         ObservableList<Goods> list = getGoodsList.getGoods();
 
         tvgoods.setItems(list);
@@ -233,7 +229,7 @@ public class HelloController implements Initializable{
 
     public void insertGoods(){
 
-        GoodsDataSource addToDatabase = new GoodsDataSource();
+        DatabaseConnection.GoodsDataSource addToDatabase = new DatabaseConnection.GoodsDataSource();
         addToDatabase.addGoods(tfname.getText(), tfcategory.getText(), Integer.parseInt(tfquantity.getText()) );
     }
 
@@ -265,7 +261,7 @@ public class HelloController implements Initializable{
 
 
     public void deleteGoods(){
-        GoodsDataSource removeFromDB = new GoodsDataSource();
+        DatabaseConnection.GoodsDataSource removeFromDB = new DatabaseConnection.GoodsDataSource();
         removeFromDB.removeGoods(tfname.getText(), tfcategory.getText(),Integer.parseInt(tfquantity.getText())  );
     }
 
