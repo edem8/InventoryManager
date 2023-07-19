@@ -1,6 +1,7 @@
 package com.example.inventory.repository;
 
 public class Goods {
+    private  int id;
     private String name;
     public String category;
     private int quantity;
@@ -10,6 +11,23 @@ public class Goods {
         this.category= category;
         this.quantity = quantity;
     }
+
+    public Goods(int id, String name, String category, int quantity){
+        this.id = id;
+        this.name = name;
+        this.category= category;
+        this.quantity = quantity;
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     public String getName() {
         return name;

@@ -42,7 +42,7 @@ public class VendorsDataSource {
     }
 
 
-    public ObservableList<Vendor> getVendor() {     // Retrieving goods from database
+    public ObservableList<Vendor> getVendor() {
         ObservableList<Vendor> allVendors = FXCollections.observableArrayList();
 
         DatabaseConnection connection = new DatabaseConnection();

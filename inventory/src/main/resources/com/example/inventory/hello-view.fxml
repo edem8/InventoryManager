@@ -19,17 +19,13 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="135.0" layoutY="95.0" text="Goods name" />
-                        <Label layoutX="135.0" layoutY="141.0" text="Goods category" />
-                        <Label layoutX="136.0" layoutY="178.0" text="Goods  quantity" />
-                        <TextField fx:id="tfname" layoutX="231.0" layoutY="91.0" prefHeight="25.0" prefWidth="235.0" />
-                        <TextField fx:id="tfcategory" layoutX="231.0" layoutY="137.0" prefHeight="25.0" prefWidth="236.0" />
-                        <TextField fx:id="tfquantity" layoutX="232.0" layoutY="183.0" prefHeight="25.0" prefWidth="235.0" />
-                        <Button fx:id="btnsave" layoutX="271.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleButtonAction" prefWidth="70.0" text="Save">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor></Button>
-                        <Button fx:id="btnremove" layoutX="357.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleButtonAction" prefWidth="70.0" text="Remove">
+                        <Label layoutX="88.0" layoutY="95.0" text="Goods name" />
+                        <Label layoutX="89.0" layoutY="141.0" text="Goods category" />
+                        <Label layoutX="89.0" layoutY="187.0" text="Goods  quantity" />
+                        <TextField fx:id="tfname" layoutX="214.0" layoutY="91.0" prefHeight="25.0" prefWidth="235.0" />
+                        <TextField fx:id="tfcategory" layoutX="213.0" layoutY="137.0" prefHeight="25.0" prefWidth="236.0" />
+                        <TextField fx:id="tfquantity" layoutX="214.0" layoutY="183.0" prefHeight="25.0" prefWidth="235.0" />
+                        <Button fx:id="btnremove" layoutX="331.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleButtonAction" prefWidth="70.0" text="Remove">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
@@ -41,6 +37,16 @@
                               <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </Label>
+                        <Label layoutX="126.0" layoutY="38.0" text="Add or Remove goods from your Inventory?">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnremove1" layoutX="245.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleButtonAction" prefWidth="70.0" text="Save">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -50,29 +56,31 @@
                      <children>
                         <TableView fx:id="tvgoods" layoutX="50.0" layoutY="30.0" prefHeight="295.0" prefWidth="460.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="30.0">
                           <columns>
-                            <TableColumn fx:id="goodscolcategory" prefWidth="163.0" text="category" />
-                            <TableColumn fx:id="goodscolname" prefWidth="156.0" text="name" />
-                              <TableColumn fx:id="goodscolqty" prefWidth="140.0" text="quantity" />
+                              <TableColumn fx:id="colgoodsid" prefWidth="82.0" text="id" />
+                            <TableColumn fx:id="goodscolcategory" prefWidth="134.0" text="category" />
+                            <TableColumn fx:id="goodscolname" minWidth="0.0" prefWidth="139.0" text="name" />
+                              <TableColumn fx:id="goodscolqty" prefWidth="100.0" text="quantity" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
               </content>
             </Tab>
-            <Tab fx:id="viewbillstab" styleClass="Tab" text="view bills">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
           <Tab fx:id="isuuegoodstab" styleClass="Tab" text="issue goods">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="78.0" layoutY="52.0" text="Issue Date" />
+                        <Label layoutX="82.0" layoutY="135.0" text="Goods ID" />
+                        <Label layoutX="234.0" layoutY="135.0" text="Quantity" />
+                        <Label layoutX="410.0" layoutY="135.0" text="Price" />
+                        <TextField fx:id="dtf" layoutX="59.0" layoutY="85.0" prefHeight="26.0" prefWidth="102.0" />
+                        <TextField fx:id="idtf" layoutX="65.0" layoutY="164.0" prefHeight="26.0" prefWidth="102.0" />
+                        <TextField fx:id="qtf" layoutX="208.0" layoutY="164.0" prefHeight="26.0" prefWidth="102.0" />
+                        <TextField fx:id="ptf" layoutX="375.0" layoutY="164.0" prefHeight="26.0" prefWidth="102.0" />
+                        <Button fx:id="issuebtn" layoutX="213.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleIssueGoodsBtn" prefHeight="30.0" prefWidth="92.0" text="Save" />
+                     </children></AnchorPane>
             </content>
           </Tab>
-            <Tab fx:id="viewIssuedhgoodstab" styleClass="Tab" text="view issued goods">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
             <Tab fx:id="viewvendortab" styleClass="Tab" text="view vendors">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -83,13 +91,63 @@
                             <TableColumn fx:id="vendorcolnumber" prefWidth="122.0" text="vendor number" />
                           </columns>
                         </TableView>
-                        <Label layoutX="89.0" layoutY="98.0" text="update your vendor list" />
+                        <Label layoutX="79.0" layoutY="84.0" text="Update your vendor list?">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font></Label>
                         <Label layoutX="32.0" layoutY="134.0" text="Name" />
                         <Label layoutX="32.0" layoutY="178.0" text="Tel No." />
                         <TextField fx:id="vtfname" layoutX="82.0" layoutY="130.0" />
                         <TextField fx:id="vtfnumber" layoutX="82.0" layoutY="175.0" />
-                        <Button fx:id="vrbtn" layoutX="165.0" layoutY="226.0" mnemonicParsing="false" onAction="#onHandleVendorAction" text="Remove" />
-                        <Button fx:id="vsbtn" layoutX="93.0" layoutY="226.0" mnemonicParsing="false" onAction="#onHandleVendorAction" prefHeight="25.0" prefWidth="58.0" text="New" />
+                        <Button fx:id="vsbtn" layoutX="93.0" layoutY="226.0" mnemonicParsing="false" onAction="#onHandleVendorAction" prefHeight="28.0" prefWidth="58.0" text="New" />
+                        <Button fx:id="vsbtn1" layoutX="158.0" layoutY="226.0" mnemonicParsing="false" onAction="#onHandleVendorAction" prefHeight="28.0" prefWidth="63.0" text="Remove" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="viewIssuedhgoodstab" styleClass="Tab" text="view issued goods">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tvIssued" layoutX="70.0" layoutY="37.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="83.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="37.0">
+                          <columns>
+                            <TableColumn fx:id="colishId" prefWidth="74.0" text="id" />
+                            <TableColumn fx:id="colIshgoodsId" prefWidth="95.0" text="goodsId" />
+                              <TableColumn fx:id="colIshqty" prefWidth="96.0" text="quantity" />
+                              <TableColumn fx:id="colIShprice" prefWidth="62.0" text="price" />
+                              <TableColumn fx:id="colIshdate" prefWidth="82.0" text="date" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="viewbillstab" styleClass="Tab" text="view bills">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="88.0" layoutY="36.0" text="Add or remove yourbills">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="30.0" layoutY="129.0" text="Vendor Id" />
+                        <Label layoutX="30.0" layoutY="212.0" text="Goods Id" />
+                        <Label layoutX="170.0" layoutY="212.0" text="Amount" />
+                        <Label layoutX="169.0" layoutY="129.0" text="Bill Date" />
+                        <TextField fx:id="vtf" layoutX="30.0" layoutY="158.0" prefHeight="26.0" prefWidth="96.0" />
+                        <TextField fx:id="datf" layoutX="152.0" layoutY="158.0" prefHeight="26.0" prefWidth="96.0" />
+                        <TextField fx:id="gft" layoutX="30.0" layoutY="239.0" prefHeight="26.0" prefWidth="96.0" />
+                        <TextField fx:id="atf" layoutX="152.0" layoutY="239.0" prefHeight="26.0" prefWidth="96.0" />
+                        <TableView fx:id="billtv" layoutX="280.0" layoutY="76.0" prefHeight="227.0" prefWidth="268.0">
+                          <columns>
+                            <TableColumn fx:id="colblld" prefWidth="37.0" text="id" />
+                              <TableColumn fx:id="colbllbll" prefWidth="36.0" text="bill" />
+                              <TableColumn fx:id="colbillvid" prefWidth="68.0" text="vendor_id" />
+                              <TableColumn fx:id="colbillgid" prefWidth="64.0" text="goods_id" />
+                            <TableColumn fx:id="colbilld" prefWidth="61.0" text="date" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="brbtn" layoutX="152.0" layoutY="291.0" mnemonicParsing="false" onAction="#handleBillBtn" text="Remove" />
+                        <Button fx:id="bsbtn" layoutX="71.0" layoutY="291.0" mnemonicParsing="false" onAction="#handleBillBtn" text="Save  " />
                      </children></AnchorPane>
               </content>
             </Tab>
